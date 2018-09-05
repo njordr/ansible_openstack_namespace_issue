@@ -28,7 +28,7 @@ def _create_connection_from_config(cloud_names=None, all_clouds=False):
             conn = openstack.connect(cloud=cloud)
             conn.authorize()
         except Exception as e:
-            raise RuntimeError('Cannot connect to cloud {}. Error: {}. sys.path: {}'.format(cloud, e, sys.path))
+            raise RuntimeError('Cannot connect to cloud {}. Error: {}. sys.path: {} openstack module in use: {}'.format(cloud, e, sys.path, openstack.__file__))
 
         connections[cloud] = conn
 
