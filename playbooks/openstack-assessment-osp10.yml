@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: no
+  run_once: yes
+  tasks:
+    - name: "Get Openstack assessment"
+      os_assessment:
+        clouds: 
+          - "openstack_undercloud"
+          - "openstack-overcloud"
+      register: servers_info_prd
+      tags:
+        - prd
+
+
+
+
